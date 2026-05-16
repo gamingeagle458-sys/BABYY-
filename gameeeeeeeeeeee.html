@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Quest❤️</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ffb6c1,#ffe4ec);
+    font-family:Arial,sans-serif;
+    overflow:hidden;
+}
+
+.container{
+    width:380px;
+    background:white;
+    padding:35px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+h1{
+    color:#ff2e63;
+}
+
+p{
+    font-size:22px;
+    color:#444;
+}
+
+button{
+    padding:14px 22px;
+    margin:10px;
+    border:none;
+    border-radius:40px;
+    background:#ff2e63;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.08);
+    background:#ff0051;
+}
+
+#message{
+    margin-top:25px;
+    font-size:24px;
+    color:#ff2e63;
+    white-space:pre-line;
+    font-weight:bold;
+}
+
+.heart{
+    position:absolute;
+    color:red;
+    animation:float 4s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-120vh);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Love Quest❤️</h1>
+
+<div id="game">
+    <p>Ready To Start😊</p>
+    <button onclick="step1()">Yes❤️</button>
+</div>
+
+<div id="message"></div>
+
+</div>
+
+<script>
+
+function step1(){
+    document.getElementById("game").innerHTML = `
+    <p>Are You Still Angry😭</p>
+    <button onclick="step2()">A Little😭</button>
+    <button onclick="step2()">Maybe not😊</button>
+    `;
+    hearts();
+}
+
+function step2(){
+    document.getElementById("game").innerHTML = `
+    <p>Can I Make You Smile😊</p>
+    <button onclick="step3()">Try❤️</button>
+    <button onclick="step3()">Ok😤</button>
+    `;
+    hearts();
+}
+
+function step3(){
+    document.getElementById("game").innerHTML = `
+    <p>What Should I Do😭</p>
+    <button onclick="step4()">Say Sorry❤️</button>
+    <button onclick="step4()">Give chocolates🍫</button>
+    <button onclick="step4()">Hug Me😊</button>
+    `;
+    hearts();
+}
+
+function step4(){
+    document.getElementById("game").innerHTML = `
+    <p>Did You Know Something😊</p>
+    <button onclick="step5()">What❤️</button>
+    `;
+    hearts();
+}
+
+function step5(){
+    document.getElementById("game").innerHTML = `
+    <p>You Are My Favorite Person❤️</p>
+    <button onclick="step6()">Really😊</button>
+    <button onclick="step6()">Awwwwwwwww🌹</button>
+    `;
+    hearts();
+}
+
+function step6(){
+    document.getElementById("game").innerHTML = `
+    <p>And Also😭</p>
+    <button onclick="step7()">Tell Me😊</button>
+    `;
+    hearts();
+}
+
+function step7(){
+    document.getElementById("game").innerHTML = `
+    <p>I Miss Your Smile❤️</p>
+    <button onclick="step8()">Still Mad😭</button>
+    <button onclick="step8()">Not Much😊</button>
+    `;
+    hearts();
+}
+
+function step8(){
+    document.getElementById("game").innerHTML = `
+    <p>Can We Be Happy Again🌹</p>
+    <button onclick="step9()">Maybe❤️</button>
+    <button onclick="step9()">Yesss😊</button>
+    `;
+    hearts();
+}
+
+function step9(){
+    document.getElementById("game").innerHTML = `
+    <p>One Last Question😭</p>
+    <button onclick="step10()">Okay😊</button>
+    `;
+    hearts();
+}
+
+function step10(){
+    document.getElementById("game").innerHTML = `
+    <p>Who Loves You The Most❤️</p>
+    <button onclick="finalMessage()">Me😊</button>
+    <button onclick="finalMessage()">Obviously You🌹</button>
+    `;
+    hearts();
+}
+
+function finalMessage(){
+
+    document.getElementById("game").innerHTML = "";
+
+    document.getElementById("message").innerHTML =
+`i loveeeeeeee youuuuuuu❤️
+umaaaaaaaaaaaaaaaaaaa💋`;
+
+    for(let i=0;i<35;i++){
+        hearts();
+    }
+}
+
+function hearts(){
+
+    const heart = document.createElement("div");
+
+    heart.classList.add("heart");
+
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random() * window.innerWidth + "px";
+
+    heart.style.fontSize = (20 + Math.random()*30) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },4000);
+}
+
+setInterval(hearts,900);
+
+</script>
+
+</body>
+</html>
